@@ -25,8 +25,8 @@ services:
     user: "${OPENC3_USER_ID:-1001}:${OPENC3_GROUP_ID:-1001}"
     image: "${OPENC3_REGISTRY}/${OPENC3_NAMESPACE}/openc3-minio${OPENC3_IMAGE_SUFFIX}:${OPENC3_TAG}"
     # Uncomment to run unit tests against the minio server
-    # ports:
-    #   - "127.0.0.1:9000:9000"
+    ports:
+       - "127.0.0.1:2950:2950"
     volumes:
       - "openc3-bucket-v:/data"
       - "./cacert.pem:/devel/cacert.pem:z"
